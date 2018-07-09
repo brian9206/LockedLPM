@@ -1,0 +1,9 @@
+Package: pw.ssnull.lockedlpm
+Name: LockedLPM
+Depends: firmware (>= 11.0), mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Enable low power mode when device is locked automatically
+Maintainer: Brian Choi <brian9206@hotmail.com>
+Author: Brian Choi <brian9206@hotmail.com>
+Section: Tweaks

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSSwitchCell</string>
+		<key>defaults</key>
+		<string>pw.ssnull.lockedlpm</string>
+		<key>label</key>
+		<string>LockedLPM</string>
+		<key>key</key>
+		<string>enabled</string>
+		<key>default</key>
+		<true/>
+		<key>icon</key>
+		<string>/Library/PreferenceLoader/Preferences/LockedLPMPrefs.Resources/Icon.png</string>
+		<key>PostNotification</key>
+		<string>pw.ssnull.lockedlpm/preferences.changed</string>
+	</dict>
+</dict>
+</plist>
