@@ -19,8 +19,17 @@ static BOOL _isEnabled;
 static BOOL _isUserEnabledLPM;
 
 static void loadPrefs(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo) {
-	NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/pw.ssnull.lockedlpm.plist"];
-	_isEnabled = [prefs objectForKey:@"enabled"] ? [[prefs objectForKey:@"enabled"] boolValue] : YES;
+	NSDictionary *prefs = NULL;
+
+	CFStringRef appID = CFSTR("pw.ssnull.lockedlpm");
+	CFArrayRef keyList = CFPreferencesCopyKeyList(appID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+
+	if (keyList) {
+		prefs = (NSDictionary *)CFPreferencesCopyMultiple(keyList, appID, kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+		CFRelease(keyList);
+	}
+
+	_isEnabled = (prefs && [prefs objectForKey:@"enabled"]) ? [[prefs objectForKey:@"enabled"] boolValue] : YES;
 }
 
 %hook SBLockScreenManager
